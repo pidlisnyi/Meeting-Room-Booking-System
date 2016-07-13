@@ -30,6 +30,11 @@ module.exports = {
       minChunks: function (module, count) {
         return module.resource && module.resource.indexOf(path.resolve(__dirname, 'client')) === -1;
       }
+    }),
+
+    new webpack.ProvidePlugin({
+      moment: "moment",
+      _: "lodash"
     })
   ]
 };

@@ -1,0 +1,52 @@
+<md-dialog
+           ria-label="Room Booking"
+           data-ng-cloak>
+  <form name="roomBooking" class="room-booking">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Room Booking</h2>
+        <span flex></span>
+        <md-button class="md-icon-button"
+                   data-ng-click="$ctrl.cancel()">
+          <md-icon md-svg-src="close" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <md-content>
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>User</label>
+          <input data-ng-model="$ctrl.user">
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Title</label>
+          <input required
+                 name="title"
+                 data-ng-model="$ctrl.title">
+          <div ng-messages="roomBooking.title.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-datepicker data-ng-model="$ctrl.startsAt"
+                       md-placeholder="Start date"
+                       required>
+        </md-datepicker>
+        <md-datepicker data-ng-model="$ctrl.endsAt"
+                       md-placeholder="End date"
+                       required>
+        </md-datepicker>
+      </md-content>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="$ctrl.cancel()">
+        Cancel
+      </md-button>
+      <md-button class="md-primary"
+                 data-ng-disabled="room-booking.$invalid"
+                 data-ng-click="$ctrl.submit()">
+        Submit
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

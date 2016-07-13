@@ -1,4 +1,31 @@
-<!-- Place all UI elements intended to be present across all routes in this file -->
-<div class="app">
-  <div ui-view></div>
+<div layout="column" style="height:100%" data-ng-cloak>
+  <navbar></navbar>
+  <section layout="row" flex>
+    <md-sidenav
+      class="md-sidenav-left md-whiteframe-4dp"
+      md-component-id="left"
+      md-is-locked-open="$mdMedia('gt-md')"
+      md-whiteframe="4">
+      <md-toolbar hide-gt-md>
+        <h1 class="md-toolbar-tools">Navigation</h1>
+      </md-toolbar>
+      <md-content layout-padding layout="column">
+        <a class="md-button"
+           data-ng-click="$ctrl.toggle('left')"
+           data-ui-sref="home"
+           data-ui-sref-active="md-accent">
+          Home
+        </a>
+        <a class="md-button"
+           data-ng-click="$ctrl.toggle('left')"
+           data-ui-sref="about"
+           data-ui-sref-active="md-accent">
+          Room Booking
+        </a>
+      </md-content>
+    </md-sidenav>
+    <md-content flex layout-padding layout="column" data-ui-view>
+
+    </md-content>
+  </section>
 </div>

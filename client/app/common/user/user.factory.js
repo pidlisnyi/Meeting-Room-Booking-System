@@ -1,15 +1,21 @@
 let UserFactory = function () {
-  const user = {};
+  this.user = {};
 
-  let getUser = () => {
-    return user;
+  let setUser = (param) => {
+    debugger
+    this.user.name = param;
+  };
+
+  let getUser = (param) => {
+    debugger
+    return this.user[param];
   };
 
   let isSignedIn = () => {
-    return user.isSignedIn; 
+    return this.user.isSignedIn;
   };
 
-  return { getUser, isSignedIn };
+  return { getUser, isSignedIn, setUser };
 };
 
 export default UserFactory;

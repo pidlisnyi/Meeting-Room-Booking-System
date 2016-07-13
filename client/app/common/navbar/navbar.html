@@ -1,8 +1,28 @@
-<nav class="navbar">
-  <div class="logo">
-    <h1><a ui-sref="home">{{ $ctrl.name }}</a></h1>
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button"
+               aria-label="Settings"
+               data-hide-gt-md
+               data-ng-click="$ctrl.toggleSidenav('left')">
+      <md-icon md-svg-icon="menu"></md-icon>
+    </md-button>
+    <h2>
+      <span data-ng-bind="$ctrl.appName"></span>
+    </h2>
+    <span flex></span>
+    <a class="md-button"
+       data-ng-show="!$ctrl.isSigned"
+       data-ng-click="$ctrl.authDialog()">
+      Login
+    </a>
+    <img class="avatar"
+         data-ng-show="$ctrl.isSigned"
+         data-ng-src="{{$ctrl.userAvatar}}"
+         alt="{{$ctrl.userName}}"/>
+    <a class="md-button"
+       data-ng-show="$ctrl.isSigned"
+       data-ng-click="$ctrl.logOut()">
+      Logout
+    </a>
   </div>
-  <div class="nav-links">
-    <span><a ui-sref="about">about</a></span>
-  </div>
-</nav>
+</md-toolbar>

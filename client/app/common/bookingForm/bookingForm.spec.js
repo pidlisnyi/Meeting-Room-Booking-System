@@ -1,16 +1,16 @@
-import NavbarModule from './index'
-import NavbarController from './navbar.controller';
-import NavbarComponent from './navbar.component';
-import NavbarTemplate from './navbar.html';
+import AuthDialogModule from './index'
+import AuthDialogController from './bookingForm.controller';
+import AuthDialogComponent from './bookingForm.component';
+import AuthDialogTemplate from './bookingForm.html';
 
-describe('Navbar', () => {
+describe('AuthDialog', () => {
   let $rootScope, makeController;
 
-  beforeEach(window.module(NavbarModule));
+  beforeEach(window.module(AuthDialogModule));
   beforeEach(inject((_$rootScope_) => {
     $rootScope = _$rootScope_;
     makeController = () => {
-      return new NavbarController();
+      return new AuthDialogController();
     };
   }));
 
@@ -30,20 +30,20 @@ describe('Navbar', () => {
     // template specs
     // tip: use regex to ensure correct bindings are used e.g., {{  }}
     it('has name in template [REMOVE]', () => {
-      expect(NavbarTemplate).to.match(/{{\s?\$ctrl\.name\s?}}/g);
+      expect(AuthDialogTemplate).to.match(/{{\s?\$ctrl\.name\s?}}/g);
     });
   });
 
   describe('Component', () => {
       // component/directive specs
-      let component = NavbarComponent;
+      let component = AuthDialogComponent;
 
       it('includes the intended template',() => {
-        expect(component.template).to.equal(NavbarTemplate);
+        expect(component.template).to.equal(AuthDialogTemplate);
       });
 
       it('invokes the right controller', () => {
-        expect(component.controller).to.equal(NavbarController);
+        expect(component.controller).to.equal(AuthDialogController);
       });
   });
 });
